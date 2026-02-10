@@ -23,3 +23,24 @@ de vuelo que han volado con un Boeing 737. (Código Modelo Avión = 733)
 SELECT flight_id
 FROM bookings.flights
 WHERE aircraft_code = '733';
+
+5. Escribe una consulta que te muestre la información detallada de los tickets que han comprado las personas que se llaman Irina.
+
+SELECT *
+FROM bookings.tickets
+WHERE passenger_name ILIKE 'Irina%';
+
+6. Mostrar las ciudades con más de un aeropuerto.
+
+SELECT city, COUNT(*) AS num_aeropuertos
+FROM bookings.airports_data
+GROUP BY city
+HAVING COUNT(*) > 1;
+
+
+
+7. Mostrar el número de vuelos por modelo de avión.
+
+select aircraft_code as modelo_avion, count (*) as vuelos
+from bookings.flights 
+group by modelo_avion
