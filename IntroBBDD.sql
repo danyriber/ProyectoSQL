@@ -44,3 +44,12 @@ HAVING COUNT(*) > 1;
 select aircraft_code as modelo_avion, count (*) as vuelos
 from bookings.flights 
 group by modelo_avion
+
+8. Reservas con más de un billete (varios pasajeros).
+
+SELECT book_ref as reservas, COUNT(*) AS num_tickets
+FROM bookings.tickets
+GROUP BY book_ref
+HAVING COUNT(*) > 1;
+
+9. Vuelos con retraso de salida superior a una hora.
